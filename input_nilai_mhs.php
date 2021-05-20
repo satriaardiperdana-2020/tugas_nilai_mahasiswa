@@ -13,13 +13,13 @@ if(isset($_POST['submit'])){
 
 	if($result){
 		echo "<script>
-				alert('Data Nilai Berhasil Diinput');window.location='input_nilai_mhs.php';
+				alert('Data Nilai Berhasil Diinput');window.location='retreive_nilai_mhs.php';
 			  </script>
 
 			 ";
 	}else{
 		echo "<script>
-				alert('Data Nilai Gagal Diinput. Cek pada data nilai apakah data nim dan matakuliah sudah ada. Jika sudah ada maka bisa di update atau hapus terlebih dahulu');window.location='input_nilai_mhs.php';
+				alert('Data Nilai Gagal Diinput. Cek pada data nilai apakah data nim dan matakuliah sudah ada. Jika sudah ada maka bisa di update atau hapus terlebih dahulu');window.location='retreive_nilai_mhs.php';
 			  </script>
 
 			 ";

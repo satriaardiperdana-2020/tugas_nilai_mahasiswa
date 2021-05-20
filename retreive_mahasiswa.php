@@ -5,7 +5,7 @@ $query  = "select * from mahasiswa";
 $result = mysqli_query($conn, $query);
 
 echo "<h1>List Mahasiswa</h1>";
-echo "<a href='input_nilai_mhs.php'>Tambah</a> ";
+echo "<a href='create_mahasiswa.php'>Tambah</a> ";
 echo "<table cellpadding='5' border = '1'>
 	  	<tr>
 	  		<th>No.</th>

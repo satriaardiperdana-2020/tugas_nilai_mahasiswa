@@ -2,9 +2,6 @@
 include "conn.inc.php";
 
 
-
-
-
 $query  = "SELECT
     mhs.nim,
     mhs.nama,
@@ -15,26 +12,24 @@ FROM
     inner join nilai nil on mhs.nim = nil.nim
     inner join matakuliah matkul on nil.kd_mtk = matkul.kd_mtk";
 $result = mysqli_query($conn, $query);
-
-echo "<h1>List Nilai</h1>";
-echo "<a href='input_nilai_mhs.php'>Input Nilai Mahasiswa</a> | Cetak Nilai Mahasiswa :";
 ?>
 <form method="post" action="cetak_hasil_study_mahasiswa.php" target="_blank">
-<select name = 'kd_matkul'>
+<?php
+echo "<h1>Nilai Mahasiswa</h1>";
+echo "<a href='input_nilai_mhs.php'>Input Nilai Mahasiswa</a> | Cetak Nilai Mahasiswa :";
+?>
+
+<select name = 'kd_matkul' >
 	<?php
-		$query2 = "select  matkul.kd_mtk, 
-						  matkul.nm_mtk
-				  from 
-				  	nilai nil
-				  	inner join matakuliah matkul on nil.kd_mtk = matkul.kd_mtk 
-		";
+		$query2 = "SELECT * from matakuliah";
 		$result2 = mysqli_query($conn, $query2);
 		while($rec2 = mysqli_fetch_assoc($result2)){
-			echo "<option value='$rec2[kd_mtk]'>$rec2[kd_mtk] - $rec2[nm_mtk] <input type='hidden' name='nm_mtk' value='$rec2[nm_mtk]'></option>";
+			echo "<option value='$rec2[kd_mtk]'>$rec2[kd_mtk] - $rec2[nm_mtk] </option>";
 
 		}
 	?>
 </select>
+
 <input type='submit' name='submit' value='cetak'>
 
 </form>		

@@ -2,7 +2,7 @@
 include "conn.inc.php";
 if(isset($_POST['submit'])){
 	$kd_matkul = $_POST['kd_matkul'];
-	$nm_mtk = $_POST['nm_mtk'];
+	//$nm_mtk = $_POST['nm_mtk'];
 
 	$query3 = "SELECT
     	mhs.nim,
@@ -18,10 +18,16 @@ if(isset($_POST['submit'])){
     inner join matakuliah matkul on nil.kd_mtk = matkul.kd_mtk
     where nil.kd_mtk='$kd_matkul'";
 	$result3 = mysqli_query($conn, $query3);
-
+	$query4 = "SELECT * from matakuliah where kd_mtk='$kd_matkul'";
+	$result4 = mysqli_query($conn, $query4);
+	if(mysqli_num_rows($result4)==1){
+			$data4 = mysqli_fetch_assoc($result4);
+		}
 	echo"<h1>Laporan Nilai</h1>";
 	echo"Kode MTK: $kd_matkul <br>";
-	echo"Matakuliah: $nm_mtk ";
+	//echo"Matakuliah: $data4['nm_mtk']; ";
+	$nama_matkul = $data4['nm_mtk'];
+	echo"Matakuliah: $nama_matkul ";
 	echo"
 		 <table cellpadding = '5' border='1'>
 		 	<tr>

@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
 	mysqli_close($conn);
 }else{
 ?>
-	<h1>Input Data</h1>
+	<h1>Input Data Mahasiswa</h1>
 	<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 		<pre>
 			NIM   : <input type='text' name='vNIM'>
